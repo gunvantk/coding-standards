@@ -187,7 +187,7 @@ access modifier (*protected*, *public*, *private*, *internal*) that vary only by
 15. Avoid naming conflicts with existing .NET Framework namespaces, or types.
 16. Avoid adding redundant or meaningless prefixes and suffixes to identifiers  
 	- **Example:**
-	```  
+	```csharp  
 		// Bad!
 		public enum ColorsEnum {…}
 		public class CVehicle {…}
@@ -207,7 +207,7 @@ appropriate.
 	* Pascal Case.
 	* Always match Assembly Name & Root Namespace.
 	* Example:
-	```		
+	```csharp		
 	LanceHunt.Web.csproj -> LanceHunt.Web.dll -> namespace
 	LanceHunt.Web
 	```
@@ -216,7 +216,7 @@ appropriate.
 	* Always match Class name and file name.
 	* Avoid including more than one Class, Enum (global), or Delegate (global) per file. Use a descriptive file name when containing multiple Class, Enum, or Delegates.
 	* Example:
-	```
+	```csharp
 	MyClass.cs => public class MyClass
 	{…} 
 	```
@@ -227,7 +227,7 @@ appropriate.
 	* Pascal Case.
 	* Try to partially match Project/Assembly Name.
 	* Example:
-	```
+	```csharp
 	namespace LanceHunt.Web
 	{…}
 	```
@@ -236,7 +236,7 @@ appropriate.
 	* Use a noun or noun phrase for class name.
 	* Add an appropriate class-suffix when sub-classing another type when possible.
 	* Examples:
-	```
+	```csharp
 	private class MyClass
 	{…}
 	internal class SpecializedAttribute : Attribute
@@ -252,14 +252,14 @@ appropriate.
 	* Pascal Case.
 	* Always prefix interface name with capital “I”.
 	* Example:
-	```
+	```csharp
 	interface ICustomer
 	{…}
 	```
 * **Generic Class** & **Generic Parameter Type**
 	* Always use a single capital letter, such as T or K.
 	* Example:
-	```
+	```csharp
 	public class FifoStack<T>
 	{
 		public void Push(<T> obj)
@@ -272,7 +272,7 @@ appropriate.
 	* Pascal Case.
 	* Try to use a Verb or Verb-Object pair.
 	* Example:
-	```
+	```csharp
 	public void Execute() {…}
 	private string GetAssemblyVersion(Assembly target) {…}
 	```
@@ -280,7 +280,7 @@ appropriate.
 	* Pascal Case.
 	* Property name should represent the entity it returns. Never prefix property names with “Get” or “Set”.
 	* Example:
-	```
+	```csharp
 	public string Name
 	{
 		get{…}
@@ -292,14 +292,14 @@ appropriate.
 	* Avoid using non-private Fields!
 	* Use Properties instead.
 	* Example:
-	```
+	```csharp
 	public string Name;
 	protected IList InnerList;
 	```
 * **Field** (Private)
 	* Camel Case and prefix with a single underscore (_) character.
 	* Example:
-	```
+	```csharp
 	private string _name;
 	```
 * **Constant** or **Static Field**
@@ -309,7 +309,7 @@ appropriate.
 	* Pascal Case (both the Type and the Options).
 	* Add the *FlagsAttribute* to bit-mask multiple options.
 	* Example:
-	```
+	```csharp
 	public enum CustomerTypes
 	{
 		Consumer,
@@ -320,7 +320,7 @@ appropriate.
 	* Treat as a Field.
 	* Choose appropriate Field access-modifier above.
 	* Example:
-	```
+	```csharp
 	public event EventHandler LoadPlugin;
 	```
 * **Variable** (inline)
@@ -330,7 +330,7 @@ appropriate.
 * **Parameter**
 	* Camel Case.
 	* Example:
-	```
+	```csharp
 	public void Execute(string commandText, int iterations)
 	{…}
 	```
@@ -368,7 +368,7 @@ namespaces.
 14. Only declare related *attribute* declarations on a single line, otherwise stack each attribute as a separate
 declaration.  
 	- Example:
-	```
+	```csharp
 	// Bad!
 	[Attrbute1, Attrbute2, Attrbute3]
 	public class MyClass
@@ -394,7 +394,7 @@ punctuation.
 22. Use // or /// but never /* … */
 23. Do not “flowerbox” comment blocks.
 	- Example:
-	```
+	```csharp
 	// ***************************************
 	// Comment block
 	// ***************************************
@@ -404,7 +404,7 @@ punctuation.
 26. Only use comments for bad code to say “fix this code” – otherwise remove, or rewrite the code!
 27. Include comments using Task-List keyword flags to allow comment-filtering.
 	- Example:
-	```
+	```csharp
 	// TODO: Place Database Code Here
 	// UNDONE: Removed P\Invoke Call due to errors
 	// HACK: Temporary fix until able to refactor
@@ -417,7 +417,7 @@ sections where applicable.
 32. Always add **CDATA** tags to comments containing code and other embedded markup in order to avoid
 encoding issues.
 	- Example:
-	```
+	```csharp
 	/// <example>
 	/// Add the following key to the “appSettings” section of your config:
 	/// <code><![CDATA[
@@ -437,7 +437,7 @@ encoding issues.
 1. Do not omit access modifiers. Explicitly declare all identifiers with the appropriate access modifier instead of
 allowing the default.
 	- Example:
-	```
+	```csharp
 	// Bad!
 	Void WriteEvent(string message)
 	{…}
@@ -451,7 +451,7 @@ manually.
 3. Set the **ComVisibleAttribute** to **false** for all assemblies.
 4. Only selectively enable the **ComVisibleAttribute** for individual classes when needed.
 	- Example:
-	```
+	```csharp
 	[assembly: ComVisible(false)]
 
 	[ComVisible(true)]
@@ -467,7 +467,7 @@ manually.
 8. Always choose the simplest data type, list, or object required.
 9. Always use the built-in C# data type aliases, not the .NET common type system (CTS).
 	- Example:
-	```
+	```csharp
 	short NOT System.Int16
 	int NOT System.Int32
 	long NOT System.Int64
@@ -493,7 +493,7 @@ data sources.
 22. Only declare constants for simple types.
 23. Avoid direct casts. Instead, use the “as” operator and check for null.
 	- Example:
-	```
+	```csharp
 	object dataObject = LoadData();
 	DataSet ds = dataObject as DataSet;
 
@@ -504,7 +504,7 @@ data sources.
 25. Always explicitly initialize arrays of reference types using a for loop.
 26. Avoid boxing and unboxing value types.
 	- Example:
-	```
+	```csharp
 	int count = 1;
 	object refCount = count; 		// Implicitly boxed.
 	int newCount = (int)refCount; 	// Explicitly unboxed.
@@ -518,7 +518,7 @@ data sources.
 `String.Length == 0`.
 32. Avoid hidden string allocations within a loop. Use `String.Compare()` for case-sensitive
 	- Example: *(ToLower() creates a temp string)*
-	```
+	```csharp
 	// Bad!
 	int id = -1;
 	string name = “lance hunt”;
@@ -556,7 +556,7 @@ data sources.
 	- Example: `int result = isValid ? 9 : 4;`
 38. Avoid evaluating Boolean conditions against true or false.
 	- Example:
-	```
+	```csharp
 	// Bad!
 	if (isValid == true)
 	{…}
@@ -570,7 +570,7 @@ data sources.
 40. Avoid compound conditional expressions – use Boolean variables to split parts into multiple manageable
 expressions.
 	- Example:
-	```
+	```csharp
 	// Bad!
 	if (((value > _highScore) && (value != _highScore)) && (value < _maxScore))
 	{…}
@@ -585,7 +585,7 @@ expressions.
 	```
 41. Avoid explicit Boolean tests in conditionals.
 	- Example:
-	```
+	```csharp
 	// Bad!
 	if(IsValid == true)
 	{…};
@@ -609,7 +609,7 @@ expressions.
 51. Avoid re-throwing an exception. Allow it to bubble-up instead.
 52. If re-throwing an exception, preserve the original call stack by omitting the exception argument from the `throw` statement.
 	- Example:
-	```
+	```csharp
 	// Bad!
 	catch(Exception ex)
 	{
@@ -627,7 +627,7 @@ expressions.
 53. Only use the `finally` block to release resources from a `try` statement.
 54. Always use validation to avoid exceptions.
 	- Example:
-	```
+	```csharp
 	// Bad!
 	try
 	{
@@ -654,7 +654,7 @@ maintained.
 	4. Always implement the deserialization constructor:
 	`protected MyCustomException(SerializationInfo info, StreamingContext contxt);`
 	5. Always implement the standard “Exception Constructor Pattern”:
-	```
+	```csharp
 	public MyCustomException ();  
 	public MyCustomException (string message);  
 	public MyCustomException (string message, Exception innerException);  
@@ -666,7 +666,7 @@ maintained.
 	2. Always modify the deserialization constructor to retrieve custom property values.
 	3. Always override the `GetObjectData(…)` method to add custom properties to the serialization collection.
 		- Example:
-		```	
+		```csharp	
 		public override void GetObjectData(SerializationInfo info,
 											StreamingContext context)
 		{
@@ -710,7 +710,7 @@ Compliance of your API’s).
 77. Always validate an enumeration variable or parameter value before consuming it. They may contain any value
 that the underlying Enum type (default `int`) supports.
 	- Example:
-	```
+	```csharp
 	public void Test(BookCategory cat)
 	{
 		if (Enum.IsDefined(typeof(BookCategory), cat))
@@ -724,13 +724,13 @@ that the underlying Enum type (default `int`) supports.
 82. Wrap instantiation of `IDisposable` objects with a “`using`” statement to ensure that `Dispose()` is
 automatically called.
 	- Example:
-	```
+	```csharp
 	using(SqlConnection cn = new SqlConnection(_connectionString))
 	{…}
 	```
 83. Always implement the `IDisposable` interface & pattern on classes referencing external resources.
 	- Example: *(shown with optional Finalizer)*
-	```
+	```csharp
 	public void Dispose()
 	{
 		Dispose(true);
@@ -757,7 +757,7 @@ automatically called.
 84. Avoid implementing a Finalizer.
 	- Never define a Finalize() method as a finalizer. Instead use the C# destructor syntax.
 	- Example:
-	```
+	```csharp
 	// Good
 	~MyClass {…}
 	
