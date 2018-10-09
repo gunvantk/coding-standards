@@ -10,14 +10,60 @@ The current standards derive from Douglas Crockford's [Code Conventions for the 
 
 ## Table of Contents
 
+- [JavaScript Files](#javascript-files)
+- [Whitespace](#whitespace)
 - [Comments](#comments)
 - [Variable Declarations](#variable-declarations)
 - [Function Declarations](#function-declarations)
 - [Names](#names)
 - [Statements](#statements)
 - [Whitespace](#whitespace)
-- [Bonus Suggestions](#bonus-suggestions)
 
+### JavaScript Files
+JavaScript programs should be stored in and delivered as .js files.
+
+JavaScript code should not be embedded in HTML files unless the code is specific to a single session. Code in HTML adds significantly to pageweight with no opportunity for mitigation by caching and compression.
+
+### Whitespace
+Where possible, these rules are consistent with centuries of good practice with literary style. Deviations from literary style should only be tolerated if there is strong evidence of a significant benefit.
+
+Blank lines improve readability by setting off sections of code that are logically related.
+
+Blank spaces should always be used in the following circumstances:
+
+* A keyword followed by ( left parenthesis should be separated by a space. Spaces are used to make things that are not invocations look less like invocations, so for example, there should be space after if or while.
+        while (true) {
+* A blank space should not be used between a function value and its invoking ( left parenthesis. This helps to distinguish between keywords and function invocations.
+* The word function is always followed with one space.
+* No space should separate a unary operator and its operand except when the operator is a word such as typeof.
+* All binary operators should be separated from their operands by a space on each side except . period and ( left parenthesis and \[ left bracket.
+* Every , comma should be followed by a space or a line break.
+* Each ; semicolon at the end of a statement should be followed with a line break.
+* Each ; semicolon in the control part of a for statement should be followed with a space.
+
+Every statement should begin aligned with the current indentation. The outermost level is at the left margin. The indentation increases by 4 spaces when the last token on the previous line is { left brace, \[ left bracket, ( left paren. The matching closing token will be the first token on a line, restoring the previous indentation.
+
+The ternary operator can be visually confusing, so wrap the entire ternary expression in parens. The condition, the ? question mark, and the : colon always begins a line, indented 4 spaces.
+```js
+    let integer = function (
+        value,
+        default_value
+    ) {
+        value = resolve(value);
+        return (
+            typeof value === "number"
+            ? Math.floor(value)
+            : (
+                typeof value === "string"
+                ? value.charCodeAt(0)
+                : default_value
+            )
+        );
+    };
+```
+Clauses (case, catch, default, else, finally) are not statements and so should not be indented like statements.
+
+Use of tabs invites confusion, argument,and crying, with little compensating value. Do not use tabs. Use space.
 
 ### Comments
 
